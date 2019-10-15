@@ -1,17 +1,17 @@
 ﻿@{
     Layout = null;
-    var seriesTitle = "The Amazing Spider-man";
+    /*var seriesTitle = "The Amazing Spider-man";
     var issueNumber = 700;
     var description = "<p>Final issue! Witness the final hours of doctor octopus life and his one, last , great act of revange!" +
                 "Even if Spider ma  n survives...<strong>will Peter Parker?</strong></p>";
     var artists = new string[]
     {
-        //"Script:Dan Slott",
-        //"Pencils : Humberto Ramos",
-        //"Inks :Victor Olazaba",
-        //"Colors : Edger Delgado",
-        //"Letters : Chris Eliopoulos"
-    };
+        "Script:Dan Slott",
+        "Pencils : Humberto Ramos",
+        "Inks :Victor Olazaba",
+        "Colors : Edger Delgado",
+        "Letters : Chris Eliopoulos"
+    };*/ //Now move data to controller.
 }
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 </head>
 <body>
     <div>
-        <h1>@seriesTitle</h1>
+        @*<h1>@seriesTitle</h1>
         <h2>Issue #@issueNumber</h2>
         <h5>Description:</h5>
         <div>@Html.Raw(description)</div>
@@ -39,7 +39,27 @@
                     }
                 </ul>
             </div>
+        }*@
+
+        <h1>@ViewBag.SeriesTitle</h1>
+        <h2>Issue #@ViewBag.IssueNumber</h2>
+        <h5>Description:</h5>
+        <div>@Html.Raw(ViewBag.Description)</div>
+
+        @if (ViewBag.Artists.Length > 0)
+        {
+            <h5>Artist:</h5>
+            <div>
+                <ul>
+                    @foreach (var artist in ViewBag.Artists)
+                    {
+                        <li><text>* @artist</text></li>
+                    }
+                </ul>
+            </div>
         }
+
+
     </div>
 </body>
 </html>
