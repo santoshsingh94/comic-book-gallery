@@ -4,13 +4,13 @@
     var issueNumber = 700;
     var description = "<p>Final issue! Witness the final hours of doctor octopus life and his one, last , great act of revange!" +
                 "Even if Spider ma  n survives...<strong>will Peter Parker?</strong></p>";
-    var artist = new string[]
+    var artists = new string[]
     {
-        "Script:Dan Slott",
-        "Pencils : Humberto Ramos",
-        "Inks :Victor Olazaba",
-        "Colors : Edger Delgado",
-        "Letters : Chris Eliopoulos"
+        //"Script:Dan Slott",
+        //"Pencils : Humberto Ramos",
+        //"Inks :Victor Olazaba",
+        //"Colors : Edger Delgado",
+        //"Letters : Chris Eliopoulos"
     };
 }
 
@@ -28,10 +28,18 @@
         <h5>Description:</h5>
         <div>@Html.Raw(description)</div>
 
-        <h5>Artist:</h5>
-        <div>@artist</div>
-
-
+        @if (artists.Length > 0)
+        {
+            <h5>Artist:</h5>
+            <div>
+                <ul>
+                    @foreach (var artist in artists)
+                    {
+                        <li><text>* @artist</text></li>
+                    }
+                </ul>
+            </div>
+        }
     </div>
 </body>
 </html>
