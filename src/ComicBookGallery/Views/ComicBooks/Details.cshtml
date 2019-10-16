@@ -2,20 +2,7 @@
 @{
     //Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = Model.DisplayText;
-
-
-    /*var seriesTitle = "The Amazing Spider-man";
-    var issueNumber = 700;
-    var description = "<p>Final issue! Witness the final hours of doctor octopus life and his one, last , great act of revange!" +
-                "Even if Spider ma  n survives...<strong>will Peter Parker?</strong></p>";
-    var artists = new string[]
-    {
-        "Script:Dan Slott",
-        "Pencils : Humberto Ramos",
-        "Inks :Victor Olazaba",
-        "Colors : Edger Delgado",
-        "Letters : Chris Eliopoulos"
-    };*/ //Now move data to controller.
+    ViewBag.ShowBackBar = true;    
 }
 
 <h2>@Model.DisplayText</h2>
