@@ -15,6 +15,13 @@ namespace ComicBookGallery.Controllers
         {
             _comicBookRepository = new ComicBookRepository();
         }
+
+        public ActionResult Index()
+        {
+            var comicBook = _comicBookRepository.GetComicBooks();
+            return View(comicBook);
+        }
+
         public ActionResult Details(int? id)   //Nullable type parameter . So that if no argument passed then there should not be any error thrown.
         {
             if (id==null)
