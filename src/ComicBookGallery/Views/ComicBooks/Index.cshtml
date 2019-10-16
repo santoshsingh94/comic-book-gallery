@@ -9,10 +9,14 @@
     @foreach (var comicBook in Model)
     {
         <div class="col-md-3">
-            <h4>@comicBook.DisplayText </h4>
+            <h4>@Html.ActionLink(comicBook.DisplayText,"details",new {id = comicBook.Id} )</h4>
+            @*Creating the @Url.Action helper method to provide a link to image. Now after clicking on the cover image
+                of any comic book can open the details page.*@
+            <a href="@Url.Action("Details", new { id = comicBook.Id })">
             <img src="~/Images/@comicBook.CoverImageFileName"
                  alt="@comicBook.DisplayText"
                  class="img-responsive" />
+            </a>
         </div>
     }
 
