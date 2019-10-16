@@ -1,4 +1,4 @@
-﻿@model ComicBookGallery.Models.ComicBook 
+﻿@model ComicBookGallery.Models.ComicBook
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = Model.DisplayText;
@@ -18,21 +18,33 @@
     };*/ //Now move data to controller.
 }
 
-<h1>@Model.SeriesTitle</h1>
-<h2>Issue #@Model.IssueNumber</h2>
-<h5>Description:</h5>
-<div>@Html.Raw(Model.DescriptionHtml)</div>
+<h2>@Model.DisplayText</h2>
 
-@if (Model.Artists.Length > 0)
-{
-    <h5>Artist:</h5>
-    <div>
-        <ul>
-            @foreach (var artist in Model.Artists)
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
+            <h5><label>Issue #:</label> @Model.IssueNumber</h5>
+            <h5><label>Favorite:</label> @(Model.Favorite ? "Yes" : "No")</h5>
+            @if (Model.Artists.Length > 0)
             {
-                <li>@artist.Role : @artist.Name</li>
+                <h5>Artist:</h5>
+                <div>
+                    <ul>
+                        @foreach (var artist in Model.Artists)
+                        {
+                            <li>@artist.Role : @artist.Name</li>
+                        }
+                    </ul>
+                </div>
             }
-        </ul>
+        </div>
+        <h5>Description:</h5>
+        <div>@Html.Raw(Model.DescriptionHtml)</div>
     </div>
-}
+    <div class="col-md-6">
+        <img src="/Images/@Model.CoverImageFileName"
+             alt="The Amazing Spider-Man #700" class="img-responsive" />
+    </div>
+</div>
 
